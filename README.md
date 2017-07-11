@@ -1,4 +1,4 @@
-# Laravel Storage Safe Application
+# Laravel Storage Safe
 
 This package offers a storage-safe application to substitute the one that comes with Laravel 5.2.
 
@@ -6,7 +6,7 @@ This package offers a storage-safe application to substitute the one that comes 
 
 ## Installation
 
-`composer require pallares/laravel-storage-safe-application`
+`composer require pallares/laravel-storage-safe`
 
 ## Usage
 
@@ -20,13 +20,15 @@ In order to use it with minimal impact, please amend the `bootstrap/app.php` fil
 // Laravel may fail to use the storage if the user who executes
 // the script is different from the user who owns this file.
 $app = function_exists('posix_geteuid') && (posix_geteuid() !== fileowner(__FILE__))
-    ? new Pallares\LaravelStorageSafeApplication\Application(realpath(__DIR__.'/../'))
+    ? new Pallares\Laravel\StorageSafe\Application(realpath(__DIR__.'/../'))
     : new Illuminate\Foundation\Application(realpath(__DIR__.'/../'));
 
 // ...
 ```
 
 The snippet above will use the storage-safe application on Posix systems and only when the user that executes the script is different than the user of the current file.
+
+Of course, you can use your own methods to check this scenario. For example, I can safely tell that I'll need the storage-sage app if the directory where the code is begins with `/home/`. This check is faster than calling `posix_*` and `fileowner`.
 
 ## Why this package?
 
