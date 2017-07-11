@@ -1,5 +1,5 @@
 {
-  "name": "pallares/laravel-storage-safe-application",
+  "name": "pallares/laravel-storage-safe",
   "require": {
     "php": "^5.5.9 || ^7.0",
     "laravel/framework": "5.2.*"
