@@ -1,6 +1,6 @@
 <?php
 
-namespace Pallares\LaravelStorageSafeApplication;
+namespace Pallares\Laravel\StorageSafe;
 
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Application as BaseApplication;
@@ -21,7 +21,7 @@ class Application extends BaseApplication
     {
         parent::__construct($basePath);
 
-        $this->ensureStorage();
+        $this->ensureStorageExists();
     }
 
     /**
@@ -84,7 +84,7 @@ class Application extends BaseApplication
     /**
      * Ensure that the required storage folders exist.
      */
-    public function ensureStorage()
+    protected function ensureStorageExists()
     {
         $paths = [
             '/app/public',

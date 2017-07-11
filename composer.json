@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Pallares\\LaravelStorageSafeApplication\\": "src/"
+      "Pallares\\Laravel\\StorageSafe\\": "src/"
     }
   },
   "autoload-dev": {
