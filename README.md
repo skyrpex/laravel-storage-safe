@@ -20,8 +20,8 @@ In order to use it with minimal impact, please amend the `bootstrap/app.php` fil
 // Laravel may fail to use the storage if the user who executes
 // the script is different from the user who owns this file.
 $app = function_exists('posix_geteuid') && (posix_geteuid() !== fileowner(__FILE__))
-    ? new Illuminate\Foundation\Application(realpath(__DIR__.'/../'))
-    : new Pallares\LaravelStorageSafeApplication\Application(realpath(__DIR__.'/../'));
+    ? new Pallares\LaravelStorageSafeApplication\Application(realpath(__DIR__.'/../'))
+    : new Illuminate\Foundation\Application(realpath(__DIR__.'/../'));
 
 // ...
 ```
