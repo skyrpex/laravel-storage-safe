@@ -28,7 +28,7 @@ $app = function_exists('posix_geteuid') && (posix_geteuid() !== fileowner(__FILE
 
 The snippet above will use the storage-safe application on Posix systems and only when the user that executes the script is different than the user of the current file.
 
-Of course, you can use your own methods to check this scenario. For example, I can safely tell that I'll need the storage-sage app if the directory where the code is begins with `/home/`. This check is faster than calling `posix_*` and `fileowner`.
+Of course, you can use your own methods to check this scenario. For example, I can safely tell that I'll need the storage-safe app if the directory where the code is begins with `/home/`. This check is faster than calling `posix_*` and `fileowner`.
 
 ## Why this package?
 
