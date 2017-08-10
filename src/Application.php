@@ -46,22 +46,6 @@ class Application extends BaseApplication
     /**
      * {@inheritdoc}
      */
-    public function getCachedConfigPath()
-    {
-        return $this->storagePath().'/bootstrap/config.php';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCachedServicesPath()
-    {
-        return $this->storagePath().'/bootstrap/services.php';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function routesAreCached()
     {
         $cachedRoutesPath = $this->getCachedRoutesPath();
@@ -82,6 +66,38 @@ class Application extends BaseApplication
     }
 
     /**
+    * {@inheritdoc}
+     */
+    public function getCachedConfigPath()
+    {
+        return $this->storagePath().'/bootstrap/cache/config.php';
+    }
+
+    /**
+    * {@inheritdoc}
+     */
+    public function getCachedRoutesPath()
+    {
+        return $this->storagePath().'/bootstrap/cache/routes.php';
+    }
+
+    /**
+    * {@inheritdoc}
+     */
+    public function getCachedCompilePath()
+    {
+        return $this->storagePath().'/bootstrap/cache/compiled.php';
+    }
+
+    /**
+    * {@inheritdoc}
+     */
+    public function getCachedServicesPath()
+    {
+        return $this->storagePath().'/bootstrap/cache/services.php';
+    }
+
+    /**
      * Ensure that the required storage folders exist.
      */
     protected function ensureStorageExists()
@@ -92,7 +108,7 @@ class Application extends BaseApplication
             '/framework/sessions',
             '/framework/views',
             '/logs',
-            '/bootstrap',
+            '/bootstrap/cache',
         ];
         foreach ($paths as $path) {
             @mkdir($this->storagePath().$path, 0777, true);
